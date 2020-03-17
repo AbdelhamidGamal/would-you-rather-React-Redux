@@ -1,5 +1,5 @@
 let users = {
-  sarahedo: {
+  abdelhameed: {
     id: 'abdelhameed',
     name: 'Abdelhameed Ismail',
     avatarURL: 'https://i.ibb.co/bRVbgpY/people-5.png',
@@ -37,10 +37,10 @@ let users = {
 let questions = {
   '8xf0y6ziyjabvozdd253nd': {
     id: '8xf0y6ziyjabvozdd253nd',
-    author: 'sarahedo',
+    author: 'abdelhameed',
     timestamp: 1467166872634,
     optionOne: {
-      votes: ['sarahedo'],
+      votes: ['abdelhameed'],
       text: 'have horrible short term memory'
     },
     optionTwo: {
@@ -57,20 +57,20 @@ let questions = {
       text: 'become a superhero'
     },
     optionTwo: {
-      votes: ['johndoe', 'sarahedo'],
+      votes: ['johndoe', 'abdelhameed'],
       text: 'become a supervillain'
     }
   },
   am8ehyc8byjqgar0jgpub9: {
     id: 'am8ehyc8byjqgar0jgpub9',
-    author: 'sarahedo',
+    author: 'abdelhameed',
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
       text: 'be telekinetic'
     },
     optionTwo: {
-      votes: ['sarahedo'],
+      votes: ['abdelhameed'],
       text: 'be telepathic'
     }
   },
@@ -83,7 +83,7 @@ let questions = {
       text: 'be a front-end developer'
     },
     optionTwo: {
-      votes: ['sarahedo'],
+      votes: ['abdelhameed'],
       text: 'be a back-end developer'
     }
   },
