@@ -1,7 +1,7 @@
 let users = {
   sarahedo: {
-    id: 'sarahedo',
-    name: 'Sarah Edo',
+    id: 'abdelhameed',
+    name: 'Abdelhameed Ismail',
     avatarURL: 'https://i.ibb.co/bRVbgpY/people-5.png',
     answers: {
       '8xf0y6ziyjabvozdd253nd': 'optionOne',
