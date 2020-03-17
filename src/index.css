@@ -1,13 +1,277 @@
-body {
+/* Reset */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* General Styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  color: #ddeceb;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+}
+
+/* utilites */
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.btn {
+  padding: 0px 13px;
+  border: none;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Nav */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #48827e;
+  padding: 20px;
+  color: #ddeceb;
+}
+
+.navlist {
+  display: flex;
+  list-style: none;
+}
+
+.navlist li a {
+  margin: 10px;
+  font-weight: bold;
+}
+
+.navuser {
+  display: flex;
+}
+
+.navuser p {
+  margin-right: 10px;
+}
+
+/* loginPage */
+.login {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 50px;
+  border: 1px solid #0b1514;
+  text-align: center;
+}
+
+#usernames {
+  display: block;
+  margin: 20px auto;
+  font-size: larger;
+  padding: 8px 60px;
+  width: 100%;
+}
+
+.logintext {
+  font-size: 2rem;
+  font-weight: 550;
+}
+
+.login-button {
+  display: inline-block;
+  padding: 10px 50px;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+/* homepage */
+.questions-block {
+  max-width: 500px;
+  margin: auto;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.question-card {
+  margin: 30px;
+  border: 1px solid black;
+}
+
+.question-card > div > p {
+  font-weight: bold;
+  padding: 10px 20px;
+  border-bottom: 1px solid black;
+  background-color: #48827e;
+}
+
+.question-card-info {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px;
+}
+
+.question-card-info img {
+  width: 100px;
+}
+
+.question-card-text {
+  padding-left: 10px;
+  border-left: 1px solid black;
+}
+
+.question-card-text p:first-child {
+  font-weight: bold;
+}
+
+.question-card-text button {
+  width: 100%;
+}
+
+/* new question */
+#newquestion {
+  max-width: 500px;
+  margin: auto;
+  border: 1px solid black;
+}
+
+#newquestion > h1 {
+  margin: 20px;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+#newquestion > form > p {
+  padding-left: 50px;
+  font-weight: bold;
+}
+
+#newquestion input {
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+  padding: 8px;
+}
+
+/* leaderboard */
+
+.leadercard {
+  max-width: 500px;
+  margin: 10px auto;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  padding: 20px;
+}
+
+.leadercard > img {
+  width: 100px;
+}
+
+.leadercard h2 {
+  margin-bottom: 10px;
+}
+
+.leadercard div:nth-child(2) {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding: 0 10px;
+}
+
+.leadercard p {
+  font-weight: 600;
+}
+
+.leadercard span {
+  display: block;
+  padding: 15px 0;
+  font-weight: 600;
+}
+
+.score {
+  background-color: green;
+  border-radius: 50%;
+  text-align: center;
+}
+
+/* question unanswered */
+.unansweredquestionpage {
+  max-width: 600px;
+  margin: 20px auto;
+  border: 1px solid black;
+}
+.unansweredquestionpage img {
+  width: 100px;
+}
+
+.unansweredquestionpage h3 {
+  margin: 20px;
+}
+
+.unansweredquestioncard {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid black;
+  margin: 20px;
+  padding: 30px;
+}
+
+.unansweredquestiontext {
+  border-left: 1px solid black;
+  padding: 20px;
+}
+
+.unansweredquestiontext input[type='submit'] {
+  width: 100%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* Question answered - poll result */
+#questionansweredpage {
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+#questionansweredpage h4 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+}
+
+#questionansweredpage img {
+  width: 100px;
+}
+
+.questionansweredcard {
+  display: flex;
+  justify-content: space-around;
+}
+
+.questionansweredcardtext {
+  padding-left: 10px;
+  border-left: 1px solid black;
+}
+
+#answered {
+  display: none;
+}
+
+.showandhide {
+  max-width: 500px;
+  margin: auto;
+}
+
+.showandhide button {
+  width: 50%;
+  height: 50px;
+  border: 1px solid black;
 }
