@@ -12,7 +12,7 @@ users are able to answer questions, see which questions they haven’t answered,
 ## Install & Run
 
 - npm install
-- npm run
+- npm start
 
 ## Contributing
 
