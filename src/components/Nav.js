@@ -10,7 +10,6 @@ export class Nav extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <ul className='container'>
         <nav className='navbar'>

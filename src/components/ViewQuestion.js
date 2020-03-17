@@ -13,7 +13,6 @@ export class ViewQuestion extends Component {
 
   submitChanges = e => {
     e.preventDefault();
-    console.log(this.state);
     this.props.dispatch(
       handleAddAnswer({
         authedUser: this.props.authedUser.id,
@@ -25,6 +24,11 @@ export class ViewQuestion extends Component {
 
   render() {
     const { question, author, authedUser } = this.props;
+
+    if (!question) {
+      return <div className='center bolder mt5'>404 Poll Dosn't exist!</div>;
+    }
+
     const votesNum =
       question.optionOne.votes.length + question.optionTwo.votes.length;
     const optionOneNum = question.optionOne.votes.length;
@@ -39,7 +43,15 @@ export class ViewQuestion extends Component {
             <div className='questionansweredcardtext'>
               <h2>Results</h2>
               <div>
-                <p>would you rather {question.optionOne.text} ?</p>
+                <p
+                  style={
+                    this.props.question.optionOne.votes.includes(authedUser.id)
+                      ? { fontWeight: 600 }
+                      : { fontWeight: 100 }
+                  }
+                >
+                  would you rather {question.optionOne.text} ?
+                </p>
                 <p>{(optionOneNum / votesNum) * 100}%</p>
                 <p>
                   {optionOneNum} votes out of {votesNum} votes
@@ -47,7 +59,15 @@ export class ViewQuestion extends Component {
               </div>
               <hr />
               <div>
-                <p>would you rather {question.optionTwo.text} ?</p>
+                <p
+                  style={
+                    this.props.question.optionTwo.votes.includes(authedUser.id)
+                      ? { fontWeight: 600 }
+                      : { fontWeight: 100 }
+                  }
+                >
+                  would you rather {question.optionTwo.text} ?
+                </p>
                 <p>{(optionTwoNum / votesNum) * 100}%</p>
                 <p>
                   {optionTwoNum} out of {votesNum} votes
@@ -99,7 +119,7 @@ function mapStateToProps(state, props) {
   const question = state.questions[props.match.params.id];
   return {
     question,
-    author: state.users[question.author],
+    author: question ? state.users[question.author] : null,
     authedUser: state.users[state.authedUser.id]
   };
 }

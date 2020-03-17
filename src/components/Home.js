@@ -27,21 +27,25 @@ export class Home extends Component {
           </button>
         </div>
         <div id='unanswered' className='questions-block'>
-          {Object.keys(questions).map(key => {
-            if (!Object.keys(authedUser.answers).includes(key)) {
-              return <QuestionCard key={key} id={key} />;
-            }
-            return '';
-          })}
+          {Object.keys(questions)
+            .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+            .map(key => {
+              if (!Object.keys(authedUser.answers).includes(key)) {
+                return <QuestionCard key={key} id={key} />;
+              }
+              return '';
+            })}
         </div>
 
         <div id='answered' className='questions-block'>
-          {Object.keys(questions).map(key => {
-            if (Object.keys(authedUser.answers).includes(key)) {
-              return <QuestionCard key={key} id={key} />;
-            }
-            return '';
-          })}
+          {Object.keys(questions)
+            .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+            .map(key => {
+              if (Object.keys(authedUser.answers).includes(key)) {
+                return <QuestionCard key={key} id={key} />;
+              }
+              return '';
+            })}
         </div>
       </div>
     );

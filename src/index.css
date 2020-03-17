@@ -35,6 +35,17 @@ img {
   color: white;
 }
 
+.center {
+  text-align: center;
+}
+.bolder {
+  font-weight: bolder;
+  font-size: 3rem;
+}
+.mt5 {
+  margin-top: 5rem;
+}
+
 /* Nav */
 .navbar {
   display: flex;
