@@ -42,7 +42,7 @@ export class ViewQuestion extends Component {
             <img src={author.avatarURL} alt='' />
             <div className='questionansweredcardtext'>
               <h2>Results</h2>
-              <div>
+              <div className='smallcard'>
                 <p
                   style={
                     this.props.question.optionOne.votes.includes(authedUser.id)
@@ -52,13 +52,24 @@ export class ViewQuestion extends Component {
                 >
                   would you rather {question.optionOne.text} ?
                 </p>
-                <p>{(optionOneNum / votesNum) * 100}%</p>
+                <div className='w3-border'>
+                  <div
+                    className='w3-green'
+                    style={{
+                      height: '24px',
+                      width: `${(optionOneNum / votesNum) * 100}%`
+                    }}
+                  >
+                    {((optionOneNum / votesNum) * 100).toFixed(2)}%
+                  </div>
+                </div>
+
                 <p>
                   {optionOneNum} votes out of {votesNum} votes
                 </p>
               </div>
-              <hr />
-              <div>
+
+              <div className='smallcard'>
                 <p
                   style={
                     this.props.question.optionTwo.votes.includes(authedUser.id)
@@ -68,7 +79,18 @@ export class ViewQuestion extends Component {
                 >
                   would you rather {question.optionTwo.text} ?
                 </p>
-                <p>{(optionTwoNum / votesNum) * 100}%</p>
+                <div className='w3-border'>
+                  <div
+                    className='w3-green'
+                    style={{
+                      height: '24px',
+                      width: `${(optionTwoNum / votesNum) * 100}%`
+                    }}
+                  >
+                    {((optionTwoNum / votesNum) * 100).toFixed(2)}%
+                  </div>
+                </div>
+
                 <p>
                   {optionTwoNum} out of {votesNum} votes
                 </p>

@@ -260,18 +260,35 @@ img {
 
 #questionansweredpage img {
   width: 100px;
+  height: 100px;
+  align-self: center;
 }
 
 .questionansweredcard {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-.questionansweredcardtext {
-  padding-left: 10px;
-  border-left: 1px solid black;
+.questionansweredcardtext h2 {
+  text-align: center;
 }
 
+.smallcard {
+  border: 1px solid black;
+  margin: 20px;
+  padding: 16px;
+}
+
+.w3-border {
+  border: 1px solid gray;
+  margin: 10px 0;
+}
+
+.w3-green {
+  background-color: #4caf50;
+}
+
+/* home */
 #answered {
   display: none;
 }
