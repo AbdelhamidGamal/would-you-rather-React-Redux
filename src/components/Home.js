@@ -1,53 +1,63 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import QuestionCard from './QuestionCard';
 import { connect } from 'react-redux';
+import { Button, Paper, Container } from '@material-ui/core';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 export class Home extends Component {
-  showAndHide = e => {
-    e.preventDefault();
-    if (e.target.name === 'unanswered') {
-      document.getElementById('unanswered').style.display = 'block';
-      document.getElementById('answered').style.display = 'none';
-    } else if (e.target.name === 'answered') {
-      document.getElementById('unanswered').style.display = 'none';
-      document.getElementById('answered').style.display = 'block';
-    }
-  };
-
   render() {
     const { authedUser, questions } = this.props;
     return (
-      <div>
-        <div className='showandhide'>
-          <button onClick={this.showAndHide} name='unanswered' className='btn'>
-            Unanswered Questions
-          </button>
-          <button onClick={this.showAndHide} name='answered' className='btn'>
-            answered Questions
-          </button>
-        </div>
-        <div id='unanswered' className='questions-block'>
-          {Object.keys(questions)
-            .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
-            .map(key => {
-              if (!Object.keys(authedUser.answers).includes(key)) {
-                return <QuestionCard key={key} id={key} />;
-              }
-              return '';
-            })}
-        </div>
+      <Container maxWidth='sm' style={{ marginTop: '10px' }}>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls='panel1a-content'
+            id='panel1a-header'
+          >
+            <Typography>Unanswered Questions</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <div style={{ width: '100%' }}>
+              {' '}
+              {Object.keys(questions)
+                .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+                .map((key) => {
+                  if (!Object.keys(authedUser.answers).includes(key)) {
+                    return <QuestionCard key={key} id={key} />;
+                  }
+                  return '';
+                })}
+            </div>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-        <div id='answered' className='questions-block'>
-          {Object.keys(questions)
-            .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
-            .map(key => {
-              if (Object.keys(authedUser.answers).includes(key)) {
-                return <QuestionCard key={key} id={key} />;
-              }
-              return '';
-            })}
-        </div>
-      </div>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls='panel1a-content'
+            id='panel1a-header'
+          >
+            <Typography>Answered Questions</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <div style={{ width: '100%' }}>
+              {Object.keys(questions)
+                .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+                .map((key) => {
+                  if (Object.keys(authedUser.answers).includes(key)) {
+                    return <QuestionCard key={key} id={key} />;
+                  }
+                  return '';
+                })}
+            </div>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+      </Container>
     );
   }
 }
@@ -55,7 +65,7 @@ export class Home extends Component {
 function mapStateToProps(state) {
   return {
     authedUser: state.users[state.authedUser.id],
-    questions: state.questions
+    questions: state.questions,
   };
 }
 

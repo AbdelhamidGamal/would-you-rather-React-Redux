@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/authedUser';
+import {
+  Container,
+  Button,
+  Typography,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormHelperText,
+} from '@material-ui/core';
 
 export class Login extends Component {
   state = {
-    user: ''
+    user: '',
   };
 
-  changeUser = e => {
+  changeUser = (e) => {
     e.preventDefault();
     this.setState({ user: e.target.value });
   };
 
-  loginUser = e => {
+  loginUser = (e) => {
     e.preventDefault();
     this.props.dispatch(loginUser(this.props.users[this.state.user]));
   };
@@ -20,33 +30,34 @@ export class Login extends Component {
   render() {
     const users = this.props.users;
     return (
-      <div className='login'>
-        <label htmlFor='usernames'>
-          <p className='logintext'>Please Login</p>
-        </label>
-        <form onSubmit={this.loginUser}>
-          <select
-            defaultValue={this.state.user}
+      <Container maxWidth='xs' style={{ marginTop: '20vh' }}>
+        <FormControl required style={{ width: '100%' }}>
+          <InputLabel id='PleaseLoginLabel'>Please Login</InputLabel>
+          <Select
+            labelId='PleaseLoginLabel'
+            id='loginSelect'
+            value={this.state.user}
             onChange={this.changeUser}
-            id='usernames'
           >
-            <option hidden value=''></option>
-            {Object.keys(users).map(key => (
-              <option key={key} value={key}>
+            {Object.keys(users).map((key) => (
+              <MenuItem key={key} value={key}>
                 {users[key].name}
-              </option>
+              </MenuItem>
             ))}
-          </select>
-          <button className='btn btn-dark login-button'>Login</button>
-        </form>
-      </div>
+          </Select>
+          <FormHelperText>Required</FormHelperText>
+          <Button onClick={this.loginUser} variant='contained' color='primary'>
+            Submit
+          </Button>
+        </FormControl>
+      </Container>
     );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    users: state.users
+    users: state.users,
   };
 }
 

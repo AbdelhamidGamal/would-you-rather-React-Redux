@@ -8,6 +8,7 @@ import Leaderboard from './Leaderboard';
 import ViewQuestion from './ViewQuestion';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Nav from './Nav';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 export class App extends Component {
   componentDidMount() {
@@ -21,24 +22,27 @@ export class App extends Component {
     }
 
     return (
-      <BrowserRouter>
-        <Fragment>
-          <Nav />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/new' component={New} />
-            <Route exact path='/leaderboard' component={Leaderboard} />
-            <Route exact path='/questions/:id' component={ViewQuestion} />
-          </Switch>
-        </Fragment>
-      </BrowserRouter>
+      <React.Fragment>
+        <CssBaseline />
+        <BrowserRouter>
+          <Fragment>
+            <Nav />
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/new' component={New} />
+              <Route exact path='/leaderboard' component={Leaderboard} />
+              <Route exact path='/questions/:id' component={ViewQuestion} />
+            </Switch>
+          </Fragment>
+        </BrowserRouter>
+      </React.Fragment>
     );
   }
 }
 
 function mapStateToProps(state, props) {
   return {
-    authedUser: state.authedUser
+    authedUser: state.authedUser,
   };
 }
 
