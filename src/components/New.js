@@ -80,28 +80,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(New);
-
-{
-  /* <div id='newquestion'>
-<h1>Create New Question</h1>
-<form onSubmit={this.addPoll}>
-  <p></p>
-  <input
-    type='text'
-    value={this.state.optionA}
-    onChange={this.changeValues}
-    name='optionA'
-    placeholder='Enter option 1 text here'
-  />
-  <p>or</p>
-  <input
-    type='text'
-    value={this.state.optionB}
-    onChange={this.changeValues}
-    name='optionB'
-    placeholder='Enter option 2 text here'
-  />
-  <input className='btn' type='submit' value='Submit' />
-</form>
-</div> */
-}

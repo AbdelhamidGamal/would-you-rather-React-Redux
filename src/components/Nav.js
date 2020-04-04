@@ -1,36 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logoutUser } from '../actions/authedUser';
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  Button,
-  Container
-} from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar, Typography, Button, Container } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      justifyContent: 'center'
+      justifyContent: 'center',
     },
     mr2: {
       marginRight: theme.spacing(2),
-      marginTop: '5px'
+      marginTop: '5px',
     },
     title: {
-      flexGrow: 1
-    }
+      flexGrow: 1,
+    },
   })
 );
 
-const Nav = props => {
-  const logoutU = e => {
+const Nav = (props) => {
+  const logoutU = (e) => {
     e.preventDefault();
     props.dispatch(logoutUser());
   };
@@ -47,7 +39,7 @@ const Nav = props => {
               justifyContent: 'space-between',
               alignContent: 'center',
               alignItems: 'center',
-              padding: '10px'
+              padding: '10px',
             }}
           >
             <div>
@@ -78,7 +70,7 @@ const Nav = props => {
 
 function mapStateToProps(state) {
   return {
-    authedUser: state.authedUser
+    authedUser: state.authedUser,
   };
 }
 

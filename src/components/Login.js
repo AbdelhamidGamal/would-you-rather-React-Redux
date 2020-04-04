@@ -4,7 +4,6 @@ import { loginUser } from '../actions/authedUser';
 import {
   Container,
   Button,
-  Typography,
   FormControl,
   InputLabel,
   Select,
